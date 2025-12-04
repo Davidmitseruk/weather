@@ -3,6 +3,7 @@ import WeatherCard from "./components/WeatherCard";
 import SearchHistory from "./components/SearchHistory";
 import ThemeToggle from "./components/ThemeToggle";
 import { ThemeContext } from "./context/ThemeContext";
+import "./components/weather.css"
 
 const API_KEY = '7ecd2181b20decdc15fcef0f75b723d4';
 
@@ -27,7 +28,7 @@ useEffect(() => {
 
 const fetchWeather = async (cityName) => {
   if(!cityName.trim()){
-    setError("enter city!");
+    setError("Enter city!");
     return
   }
   setError("")
@@ -58,27 +59,33 @@ const handleSelectHistory = (selectedCity) => {
 };
 
 return(
-  <div >
+  <div className="background">
+  <div className="main">
       <ThemeToggle />
 
-      <h2>Weather</h2>
+      <h2 className="title">Weather</h2>
 
-      <form onSubmit={handleSubmit} >
+<div className="loadFlex">
+      <form onSubmit={handleSubmit} className="searchForm">
         <input
+        className="searchInput"
           type="text"
           placeholder="Enter city..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button >Search</button>
+        <button className="searchBtn">Search</button>
       </form>
 
-      {error && <div >{error}</div>}
-      {loading && <div>loading...</div>}
-
+      {error && <div className="error" >⬅ {error}</div>}
+      {loading && <div className="loading">loading...</div>}
+</div>
+    <div className="flex"> 
       <SearchHistory history={history} onSelect={handleSelectHistory} />
 
       {weather && <WeatherCard weather={weather} />}
+      </div>
+    </div>
     </div>
 )
 }
