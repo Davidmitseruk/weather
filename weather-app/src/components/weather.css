@@ -1,114 +1,157 @@
+body[data-theme="light"] {
+  --bg-main: rgb(255, 255, 255);
+  --bg-page: rgb(187, 205, 229);
+  --text-color: rgb(73, 72, 72);
+  --card-bg: aliceblue;
+  --form-bg: rgba(98, 96, 96, 0.2);
+  --error-color: #ff4d4f;
+}
+
+body[data-theme="dark"] {
+  --bg-main: #1e1e1e;
+  --bg-page: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #2a2a2a;
+  --form-bg: rgba(255, 255, 255, 0.1);
+  --error-color: #ff6b6b;
+}
+
+/* Global */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: var(--bg-page);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
+/* Main container */
 .main {
-    background-color: rgb(255, 255, 255);
-    width: 800px;
-    height: 720px;
-    margin: 0 auto;       
-    position: relative;    
-    padding: 0;            
+  background-color: var(--bg-main);
+  width: 800px;
+  height: 720px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
-.background {
-    background-color: rgb(187, 205, 229);
-    height: 750px;
-    margin: 0;
-    padding: 0;
-}
-
+/* Title */
 .title {
-    color: rgb(73, 72, 72);
-    margin: 20px 20px 20px 20px;    
-    text-align: center;
-    font-size: 40px;
+  color: var(--text-color);
+  margin: 20px;
+  text-align: center;
+  font-size: 40px;
 }
 
+/* Theme button */
 .themeIcon {
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    position: absolute;
-    top: 0;      
-    right: 0;     
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .themeIcon:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-.searchList{
-    list-style: none;
-}
-.searchItem{
-    background-color: aliceblue;
-    margin-bottom: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    width: 250px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 2s ease;
+/* Search list */
+.searchList {
+  list-style: none;
 }
 
-.searchItem:hover{
-    scale: 1.2;
+.searchItem {
+  background-color: var(--card-bg);
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.flex{
-    display: flex;
-    width: 750px;
-    justify-content: space-between;
+.searchItem:hover {
+  transform: scale(1.05);
 }
 
-.searchForm{
-    background-color: rgba(98, 96, 96, 0.2);
-    padding: 10px 10px;
-    width: 250px;
-    margin-left: 40px;
-    border-radius: 15px;
-}
-.searchInput{
-    background: none;
-    border: none;
-}
-.searchInput:focus{
-    outline: none;
+/* Flex containers */
+.flex {
+  display: flex;
+  width: 750px;
+  justify-content: space-between;
 }
 
-.loadFlex{
-    display: flex;
+.loadFlex {
+  display: flex;
 }
+
+/* Form */
+.searchForm {
+  background-color: var(--form-bg);
+  padding: 10px;
+  width: 250px;
+  margin-left: 40px;
+  border-radius: 15px;
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  color: var(--text-color);
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchForm button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Error / Loading */
 .error,
-.loading{
-    font-size: 30px;
-    margin-left: 240px;
+.loading {
+  font-size: 30px;
+  margin-left: 240px;
+  color: var(--error-color);
 }
 
-/*CITY*/
-.city{
-    border: 1px solid grey;
-    border-radius: 8px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* City card */
+.city {
+  border: 1px solid grey;
+  border-radius: 8px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
-.cityName{
-    font-size: 30px;
+
+.cityName {
+  font-size: 30px;
 }
-.cityIcon{
-    width: 150px;
+
+.cityIcon {
+  width: 150px;
 }
-.cityTemp{
-    font-size: 20px;
-}
-.cityHum{
-    font-size: 20px;
+
+.cityTemp,
+.cityHum {
+  font-size: 20px;
 }

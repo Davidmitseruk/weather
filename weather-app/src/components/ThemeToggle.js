@@ -1,11 +1,13 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import "./weather.css"
+import "./weather.css";
 
-export default function ThemeToggle(){
-    const {theme, toggleTheme} = useContext(ThemeContext);
+export default function ThemeToggle() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
-    return(
-        <button className="themeIcon"> {theme === "light"? "🌞": "🌙"}</button>
-    )
+  return (
+    <button className="themeIcon" onClick={toggleTheme}>
+      {theme === "light" ? "🌞" : "🌙"}
+    </button>
+  );
 }
